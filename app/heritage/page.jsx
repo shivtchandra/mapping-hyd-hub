@@ -7,9 +7,9 @@ import { SITES, COUNTS, ERAS } from "../../lib/heritage.js";
 const SITE = "https://mapmyhyd.com";
 
 export const metadata = {
-  title: "Hyderabad heritage sites — monuments, stepwells, palaces & tombs by era",
+  title: "Best Heritage Sites & Historical Places to Visit in Hyderabad",
   description:
-    "A working list of Hyderabad's built heritage: Qutb Shahi tombs and mosques, Asaf Jahi palaces, Nizam-era civic buildings, the British Residency, stepwells and gateways — filter by era, type and protection status.",
+    "Explore the best heritage sites and historical places in Hyderabad — Qutb Shahi tombs, Nizam-era palaces, stepwells and British-era civic buildings. Filter by era, type and protection status. One of Hyderabad's top tourism destinations, mapped.",
   alternates: { canonical: "/heritage" },
   openGraph: {
     title: "Hyderabad heritage sites, by era",

@@ -9,7 +9,7 @@ export const metadata = {
     template: "%s · Mapping HYD",
   },
   description:
-    "A growing digital atlas of Hyderabad — startups, food, neighbourhoods, lakes, escapes and heritage, mapped one layer at a time.",
+    "Discover the best places to visit in Hyderabad — startups, food, heritage sites, lakes and weekend escapes, mapped one layer at a time. Your guide to what to do in Hyderabad.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -18,13 +18,13 @@ export const metadata = {
     url: SITE,
     title: "Mapping HYD — Hyderabad, one layer at a time.",
     description:
-      "A growing digital atlas of Hyderabad, built as focused tools for the questions the city asks every day.",
+      "Best places to visit in Hyderabad — heritage sites, lakes, food, startups and weekend escapes, mapped one layer at a time.",
     images: [{ url: "/assets/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Mapping HYD — Hyderabad, one layer at a time.",
-    description: "A growing digital atlas of Hyderabad, built one useful layer at a time.",
+    description: "Best places to visit in Hyderabad — heritage, lakes, food and more, mapped one layer at a time.",
     images: ["/assets/og-image.jpg"],
   },
   icons: { icon: "/assets/favicon.svg" },
