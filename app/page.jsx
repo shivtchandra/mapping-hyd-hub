@@ -9,7 +9,7 @@ const LAYERS = [
     key: "startup",
     name: "Hyderabad Startup Map",
     desc: "See who’s building in Hyderabad — companies, funding and open jobs, on a live map.",
-    href: "/startups",
+    href: "https://startups.mapmyhyd.com/",
     status: "Live",
     live: true,
   },
@@ -18,9 +18,9 @@ const LAYERS = [
     key: "eats",
     name: "Eateries Race",
     desc: "Find where to eat near you, check in on the spot, and climb a city-wide leaderboard.",
-    href: "/eats",
-    status: "Live",
-    live: true,
+    // href: "/eats",  — temporarily offline, coming back soon
+    status: "Coming soon",
+    live: false,
   },
   {
     n: "03",
@@ -31,36 +31,13 @@ const LAYERS = [
     status: "In development",
     live: false,
   },
-  {
-    n: "04",
-    key: "live",
-    name: "Where to Live",
-    desc: "Compare any neighbourhood by rent, commute, water and flood risk — before you sign.",
-    status: "In development",
-    live: false,
-  },
-  {
-    n: "05",
-    key: "escapes",
-    name: "Weekend Escapes",
-    desc: "Every trek, fort and waterfall worth the drive — with distance, season and difficulty.",
-    status: "Coming soon",
-    live: false,
-  },
-  {
-    n: "06",
-    key: "lakes",
-    name: "Lakes",
-    desc: "Every lake’s boundary, buffer and health — the water the city is built around.",
-    status: "Coming soon",
-    live: false,
-  },
+  // Layers 04+ kept private — not listing publicly yet
 ];
 
 export default function Home() {
   return (
     <>
-      <SiteHeader liveLabel="02 live" />
+      <SiteHeader liveLabel="01 live" />
 
       <main>
         <section className="hero" aria-labelledby="hero-title">
@@ -72,7 +49,7 @@ export default function Home() {
             </h1>
             <p className="hero-tagline">Hyderabad, one layer at a time.</p>
             <p className="hero-summary">
-              Six maps that answer the questions this city actually asks — where to eat, where to
+              Maps that answer the questions this city actually asks — where to eat, where to
               live, what’s worth the drive, what’s being lost. Built one layer at a time.
             </p>
             <a className="hero-cta" href="#layers">
@@ -154,7 +131,7 @@ export default function Home() {
           </p>
           <div className="layers-heading">
             <h2 id="layers-title">The layers</h2>
-            <p>02 live · 04 in progress</p>
+            <p>01 live · more in progress</p>
           </div>
 
           <figure className="layers-divider" aria-hidden="true">
