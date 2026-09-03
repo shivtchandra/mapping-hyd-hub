@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const SITE = "https://mapmyhyd.com";
 
@@ -69,7 +70,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>{children}<Analytics /></body>
     </html>
   );
 }
