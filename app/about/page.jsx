@@ -78,7 +78,7 @@ export default function About() {
           <p>
             The next idea was impossible to miss if you live here: a new cafe every week, sometimes
             every few days, and no good way to actually explore it. So the second build became the{" "}
-            <Link href="/eats">Eateries Race</Link> — a discovery map with a leaderboard, weekly
+            <Link href="https://eats.mapmyhyd.com/">Eateries Race</Link> — a discovery map with a leaderboard, weekly
             themes, and a GPS-verified check-in so claiming a spot means you were actually there. A
             game layered on a map, for a city where the food scene is one of the fastest-changing
             things about it.
@@ -114,10 +114,10 @@ export default function About() {
           <h2>What’s live</h2>
           <ul>
             <li>
-              <Link href="/startups">Hyderabad Startup Map</Link> — companies, open jobs, funding.
+              <Link href="https://startups.mapmyhyd.com/">Hyderabad Startup Map</Link> — companies, open jobs, funding.
             </li>
             <li>
-              <Link href="/eats">Eateries Race</Link> — discovery map with a city leaderboard.
+              <Link href="https://eats.mapmyhyd.com/">Eateries Race</Link> — discovery map with a city leaderboard.
             </li>
           </ul>
           <p>
