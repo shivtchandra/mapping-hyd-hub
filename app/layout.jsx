@@ -50,6 +50,12 @@ const orgLd = {
       url: `${SITE}/`,
       logo: `${SITE}/assets/favicon.svg`,
       founder: [{ "@type": "Person", name: "Shiva Chandra Takkelapati" }],
+      sameAs: [
+        "https://mapmyhyd.com/",
+        "https://eats.mapmyhyd.com/",
+        "https://startups.mapmyhyd.com/",
+        "https://github.com/shivtchandra/hydstartuplist",
+      ],
     },
   ],
 };

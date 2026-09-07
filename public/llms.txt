@@ -4,6 +4,7 @@
 
 ## Brand
 - Name: Mapping HYD
+- Canonical brand: Mapping HYD
 - Hub: https://mapmyhyd.com/
 - About: https://mapmyhyd.com/about
 

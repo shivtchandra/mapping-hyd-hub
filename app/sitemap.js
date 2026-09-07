@@ -4,11 +4,15 @@ const SITE = "https://mapmyhyd.com";
 
 export default function sitemap() {
   const now = new Date();
-  const staticPages = ["", "/about", "/heritage"].map((p) => ({
+  const staticPages = [
+    { path: "", priority: 1 },
+    { path: "/about", priority: 0.8 },
+    { path: "/heritage", priority: 0.9 },
+  ].map(({ path: p, priority }) => ({
     url: `${SITE}${p || "/"}`,
     lastModified: now,
     changeFrequency: "weekly",
-    priority: p === "" ? 1 : p === "/heritage" ? 0.85 : 0.7,
+    priority,
   }));
 
   const heritagePages = SITES.map((s) => ({
