@@ -107,27 +107,15 @@ export default function About() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutLd) }}
       />
 
-      <main className="doc">
-        <p className="section-label">The story</p>
-        <h1 className="doc-title">
-          Where this started, and what it’s building toward.
-        </h1>
+      <main className="doc about-page">
+        <div className="about-layout">
+          <div className="about-copy">
+            <p className="section-label">The story</p>
+            <h1 className="doc-title">
+              Where this started, and what it’s building toward.
+            </h1>
 
-        <figure className="about-art">
-          <picture>
-            <source srcSet="/assets/campaign-expanded.webp" type="image/webp" />
-            <img
-              src="/assets/campaign-expanded.jpg"
-              width="1086"
-              height="1448"
-              alt="Illustrated Hyderabad at 17.3850°N, 78.4867°E — Charminar, a lake, a stepwell, the Metro and Irani chai, joined by a route."
-              decoding="async"
-            />
-          </picture>
-          <figcaption>17.3850° N, 78.4867° E — one city, drawn as one route.</figcaption>
-        </figure>
-
-        <div className="doc-body">
+            <div className="doc-body">
           <h2>How it started</h2>
           <p>
             It began out of boredom. No grand plan, no market-research spreadsheet — just idle
@@ -214,6 +202,24 @@ export default function About() {
           <p className="doc-back">
             <Link href="/">← Back to the atlas</Link>
           </p>
+            </div>
+          </div>
+
+          <aside className="about-aside" aria-label="Campaign art">
+            <figure className="about-art">
+              <picture>
+                <source srcSet="/assets/campaign-expanded.webp" type="image/webp" />
+                <img
+                  src="/assets/campaign-expanded.jpg"
+                  width="1086"
+                  height="1448"
+                  alt="Illustrated Hyderabad at 17.3850°N, 78.4867°E — Charminar, a lake, a stepwell, the Metro and Irani chai, joined by a route."
+                  decoding="async"
+                />
+              </picture>
+              <figcaption>17.3850° N, 78.4867° E — one city, drawn as one route.</figcaption>
+            </figure>
+          </aside>
         </div>
       </main>
 
