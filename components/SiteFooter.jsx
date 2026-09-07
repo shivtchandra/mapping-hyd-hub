@@ -20,8 +20,8 @@ export default function SiteFooter() {
         </p>
 
         <nav className="footer-nav" aria-label="Footer">
-          <Link href="/startups">Startups</Link>
-          <Link href="/eats">Eats</Link>
+          <a href="https://startups.mapmyhyd.com/">Startups</a>
+          <a href="https://eats.mapmyhyd.com/">Eats</a>
           <Link href="/heritage">Heritage</Link>
           <Link href="/about">About</Link>
         </nav>
