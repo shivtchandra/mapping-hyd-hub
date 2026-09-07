@@ -1304,3 +1304,71 @@ main {
 @media (max-width: 620px) {
   .about-art { float: none; width: 100%; margin: 24px 0; }
 }
+
+
+/* ---------- series support ---------- */
+.series-support-inner {
+  max-width: 640px;
+}
+.series-support-title {
+  font-family: var(--font-display, "Fraunces", serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+  color: inherit;
+}
+.series-support-copy {
+  margin: 0 0 18px;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: inherit;
+  opacity: 0.88;
+  max-width: 36em;
+}
+.series-support-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 18px;
+}
+.series-support-btn {
+  appearance: none;
+  border: 1.5px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+}
+.series-support-btn:hover:not(:disabled) {
+  background: currentColor;
+  color: #f7f4ec;
+}
+.band--paper .series-support-btn:hover:not(:disabled) {
+  color: #f7f4ec;
+}
+.series-support-btn.is-on,
+.series-support-btn:disabled.is-on {
+  background: #2f5d50;
+  border-color: #2f5d50;
+  color: #f7f4ec;
+  cursor: default;
+}
+.series-support-btn:disabled:not(.is-on) {
+  opacity: 0.6;
+  cursor: wait;
+}
+.series-support-count {
+  margin: 0;
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+}
+@media (max-width: 640px) {
+  .series-support-row { flex-direction: column; align-items: flex-start; }
+}

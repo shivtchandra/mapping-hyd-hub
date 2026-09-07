@@ -2,6 +2,9 @@ import Link from "next/link";
 import SiteHeader from "../components/SiteHeader.jsx";
 import SiteFooter from "../components/SiteFooter.jsx";
 import Reveal from "../components/Reveal.jsx";
+import LandingTracker from "../components/LandingTracker.jsx";
+import SeriesSupport from "../components/SeriesSupport.jsx";
+import LayerClickTracker from "../components/LayerClickTracker.jsx";
 
 const LAYERS = [
   {
@@ -18,9 +21,9 @@ const LAYERS = [
     key: "eats",
     name: "Eateries Race",
     desc: "Find where to eat near you, check in on the spot, and climb a city-wide leaderboard.",
-    // href: "/eats",  — temporarily offline, coming back soon
-    status: "Coming soon",
-    live: false,
+    href: "https://eats.mapmyhyd.com/",
+    status: "Live",
+    live: true,
   },
   {
     n: "03",
@@ -38,6 +41,7 @@ export default function Home() {
   return (
     <>
       <SiteHeader liveLabel="01 live" />
+      <LandingTracker />
 
       <main>
         <section className="hero" aria-labelledby="hero-title">
@@ -142,15 +146,17 @@ export default function Home() {
             <div className="layer-list">
               {LAYERS.map((l) =>
                 l.live ? (
-                  <Link key={l.n} className="layer-row live" data-layer={l.key} href={l.href}>
-                    <span className="layer-number">{l.n}</span>
-                    <h3 className="layer-name">{l.name}</h3>
-                    <p className="layer-description">{l.desc}</p>
-                    <span className="layer-status">{l.status}</span>
-                    <span className="layer-arrow" aria-hidden="true">
-                      ↗
-                    </span>
-                  </Link>
+                  <LayerClickTracker key={l.n} layer={l.key}>
+                    <Link className="layer-row live" data-layer={l.key} href={l.href}>
+                      <span className="layer-number">{l.n}</span>
+                      <h3 className="layer-name">{l.name}</h3>
+                      <p className="layer-description">{l.desc}</p>
+                      <span className="layer-status">{l.status}</span>
+                      <span className="layer-arrow" aria-hidden="true">
+                        ↗
+                      </span>
+                    </Link>
+                  </LayerClickTracker>
                 ) : (
                   <article key={l.n} className="layer-row" data-layer={l.key}>
                     <span className="layer-number">{l.n}</span>
@@ -171,6 +177,8 @@ export default function Home() {
             </figure>
           </div>
         </section>
+
+        <SeriesSupport />
 
       </main>
 

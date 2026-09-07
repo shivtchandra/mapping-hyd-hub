@@ -1,6 +1,8 @@
 import Link from "next/link";
 import SiteHeader from "../../components/SiteHeader.jsx";
 import SiteFooter from "../../components/SiteFooter.jsx";
+import LandingTracker from "../../components/LandingTracker.jsx";
+import SeriesSupport from "../../components/SeriesSupport.jsx";
 
 const SITE = "https://mapmyhyd.com";
 
@@ -31,6 +33,7 @@ export default function About() {
   return (
     <>
       <SiteHeader active="about" liveLabel="02 live" />
+      <LandingTracker event="about_view" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutLd) }}
@@ -128,6 +131,7 @@ export default function About() {
         </div>
       </main>
 
+      <SeriesSupport />
       <SiteFooter />
     </>
   );
