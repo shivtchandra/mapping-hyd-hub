@@ -26,10 +26,11 @@ export function generateMetadata({ params }) {
   const era = eraLabel(s.era);
   const kind = typeLabel(s.type).toLowerCase();
   const title = `${s.name} — ${era} ${kind} in Hyderabad`;
-  const description =
-    (s.summary && s.summary.length > 40
-      ? s.summary.slice(0, 155).replace(/\s+\S*$/, "") + "…"
-      : `${s.name}: a ${era} ${kind} in ${s.area || "Hyderabad"}. Dates, access, protection status and location.`);
+  const description = (
+    s.summary && s.summary.length > 40
+      ? (s.summary.length > 155 ? s.summary.slice(0, 155).replace(/\s+\S*$/, "") + "…" : s.summary)
+      : `${s.name}: a ${era} ${kind} in ${s.area || "Hyderabad"}. Dates, access, protection status and location.`
+  );
   return {
     title,
     description,
@@ -118,6 +119,17 @@ export default function HeritageSite({ params }) {
                 <li key={i}>{x}</li>
               ))}
             </ul>
+          )}
+
+          {s.sections?.length > 0 && (
+            <div className="doc-sections">
+              {s.sections.map((sec) => (
+                <section key={sec.heading}>
+                  <h2>{sec.heading}</h2>
+                  <p>{sec.body}</p>
+                </section>
+              ))}
+            </div>
           )}
 
           <dl className="facts">
