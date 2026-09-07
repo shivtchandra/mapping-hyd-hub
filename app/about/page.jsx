@@ -20,13 +20,81 @@ export const metadata = {
   },
 };
 
+// FAQ topics chosen from Keywords Everywhere (India, Google Keyword Planner
+// + Clickstream) monthly volumes — zero-volume phrases were excluded.
+const FAQ = [
+  {
+    q: "What are the best places to visit in Hyderabad?",
+    a: "Start with the living heritage layer — Charminar, Golconda Fort, Chowmahalla, Salar Jung and dozens more — then branch into food and startups as you explore the city.",
+    href: "https://mapmyhyd.com/heritage",
+    label: "Open Deccan Heritage",
+  },
+  {
+    q: "Where is Charminar, and what else is nearby?",
+    a: "Charminar sits at the Old City centre. Mapping HYD’s heritage pages cover the monument plus nearby Mecca Masjid, Chowmahalla and the surrounding gates — with access notes and related sites.",
+    href: "https://mapmyhyd.com/heritage/charminar",
+    label: "Charminar on Mapping HYD",
+  },
+  {
+    q: "What should I know about Golconda Fort?",
+    a: "Golconda is the old Qutb Shahi citadel west of the city. The heritage page pairs the fort with the Qutb Shahi Tombs and visit basics so you can plan a half-day without hunting five tabs.",
+    href: "https://mapmyhyd.com/heritage/golconda-fort",
+    label: "Golconda Fort guide",
+  },
+  {
+    q: "Where can I find the best biryani and restaurants in Hyderabad?",
+    a: "Hyderabad Eats is the food layer — map discovery, weekly community rankings, and Google-review baselines for biryani, cafes and restaurants across the city.",
+    href: "https://eats.mapmyhyd.com/rankings/best-biryani-in-hyderabad",
+    label: "Best biryani rankings",
+  },
+  {
+    q: "What are the best cafes in Hyderabad?",
+    a: "Browse cafes on the Eats map and the cafe ranking pages — community votes sit next to the long-run Google baseline so you get both the current buzz and the old-guard list.",
+    href: "https://eats.mapmyhyd.com/rankings/best-cafe-in-hyderabad",
+    label: "Best cafe rankings",
+  },
+  {
+    q: "How do I explore startups in Hyderabad?",
+    a: "The Hyderabad Startup Map lists 1,100+ mapped companies with sectors, areas, funding stage and open roles — including corridor hubs like HITEC City, Madhapur and Gachibowli.",
+    href: "https://startups.mapmyhyd.com/",
+    label: "Open the startup map",
+  },
+  {
+    q: "Where are startup jobs in Hyderabad?",
+    a: "Open roles from mapped companies are listed on the startups jobs board, with landings by area and sector so you can filter for Madhapur, HITEC City, SaaS and more.",
+    href: "https://startups.mapmyhyd.com/jobs",
+    label: "Browse startup jobs",
+  },
+  {
+    q: "What about weekend getaways and lakes near Hyderabad?",
+    a: "Those layers are next in the series. The atlas already points the direction — heritage and food are live today; lakes and weekend escapes ship as their own maps under the same Mapping HYD brand.",
+    href: "https://mapmyhyd.com/",
+    label: "Back to the atlas",
+  },
+];
+
 const aboutLd = {
   "@context": "https://schema.org",
-  "@type": "AboutPage",
-  name: "About Mapping HYD",
-  url: `${SITE}/about`,
-  about: { "@id": `${SITE}/#organization` },
-  publisher: { "@id": `${SITE}/#organization` },
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      name: "About Mapping HYD",
+      url: `${SITE}/about`,
+      about: { "@id": `${SITE}/#organization` },
+      publisher: { "@id": `${SITE}/#organization` },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: FAQ.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `${item.a} ${item.label}: ${item.href}`,
+        },
+      })),
+    },
+  ],
 };
 
 export default function About() {
@@ -110,6 +178,24 @@ export default function About() {
             landmark. Dozens, eventually hundreds, of specific answers instead of one general page
             trying to rank for everything.
           </p>
+
+          <h2>Questions Hyderabad actually searches</h2>
+          <p>
+            These are the city questions people already type into Google at scale — places to visit,
+            Charminar and Golconda, biryani and cafes, startups and jobs. Mapping HYD answers each
+            one on the layer that owns it, instead of stuffing everything into a single blog post.
+          </p>
+          <div className="about-faq">
+            {FAQ.map((item) => (
+              <div key={item.q} className="about-faq-item">
+                <h3>{item.q}</h3>
+                <p>
+                  {item.a}{" "}
+                  <Link href={item.href}>{item.label} →</Link>
+                </p>
+              </div>
+            ))}
+          </div>
 
           <h2>What’s live</h2>
           <ul>

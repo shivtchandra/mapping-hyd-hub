@@ -1372,3 +1372,21 @@ main {
 @media (max-width: 640px) {
   .series-support-row { flex-direction: column; align-items: flex-start; }
 }
+
+
+/* About FAQ — searched questions → layer answers */
+.about-faq {
+  display: grid;
+  gap: 1.25rem;
+  margin: 0 0 1.75rem;
+}
+.about-faq-item h3 {
+  font-family: inherit;
+  font-size: 1.15rem;
+  margin: 0 0 0.35em;
+  line-height: 1.35;
+}
+.about-faq-item p {
+  margin: 0;
+  color: var(--ink-soft, #444);
+}
