@@ -11,7 +11,7 @@ export const metadata = {
   },
   description:
     "Discover the best places to visit in Hyderabad — startups, food, heritage sites, lakes and weekend escapes, mapped one layer at a time. Your guide to what to do in Hyderabad.",
-  alternates: { canonical: "/" },
+  alternates: { canonical: "https://mapmyhyd.com/" },
   openGraph: {
     type: "website",
     locale: "en_IN",

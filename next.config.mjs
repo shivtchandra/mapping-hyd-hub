@@ -8,6 +8,17 @@ const EATS = process.env.EATS_ORIGIN || "https://eats.mapmyhyd.com";
 const HERITAGE_APP = process.env.HERITAGE_APP_ORIGIN || "https://heritage.mapmyhyd.com";
 
 const nextConfig = {
+  async redirects() {
+    return [
+      // Collapse www + trailing-slash noise onto the apex host Google should index.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.mapmyhyd.com" }],
+        destination: "https://mapmyhyd.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [
       { source: "/startups", destination: STARTUPS },
