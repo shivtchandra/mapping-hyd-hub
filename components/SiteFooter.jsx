@@ -20,7 +20,7 @@ export default function SiteFooter() {
         </p>
 
         <nav className="footer-nav" aria-label="Footer">
-          <a href="https://startups.mapmyhyd.com/">Startups</a>
+          <a href="https://startups.mapmyhyd.com/">Hyderabad Startup Map</a>
           <a href="https://startups.mapmyhyd.com/jobs">Jobs</a>
           <a href="https://eats.mapmyhyd.com/">Eats</a>
           <a href="https://eats.mapmyhyd.com/rankings/best-buffet-in-hyderabad">Best Buffet</a>
