@@ -25,18 +25,24 @@ export function generateMetadata({ params }) {
   if (!s) return {};
   const era = eraLabel(s.era);
   const kind = typeLabel(s.type).toLowerCase();
-  const title = `${s.name} — ${era} ${kind} in Hyderabad`;
-  const description = (
-    s.summary && s.summary.length > 40
-      ? (s.summary.length > 155 ? s.summary.slice(0, 155).replace(/\s+\S*$/, "") + "…" : s.summary)
-      : `${s.name}: a ${era} ${kind} in ${s.area || "Hyderabad"}. Dates, access, protection status and location.`
-  );
+  const title = `${s.name} Hyderabad — Timings, Entry Fee, History & Location`;
+  
+  const entrySnippet = s.ticket?.inr != null 
+    ? (s.ticket.inr === 0 ? "Free entry" : `Entry ₹${s.ticket.inr}`) 
+    : (s.access === "open" ? "Free entry" : accessLabel(s.access));
+  const timingSnippet = s.ticket?.hours ? `Hours: ${s.ticket.hours}.` : "";
+  const metroSnippet = s.nearestMetro ? `Nearest Metro: ${s.nearestMetro}.` : "";
+
+  const baseSummary = s.summary || `${s.name} is a historic ${era} ${kind} located in ${s.area || "Hyderabad"}.`;
+  const rawDescription = `Visit ${s.name} in ${s.area || "Hyderabad"}. ${entrySnippet}. ${timingSnippet} ${metroSnippet} ${baseSummary}`.replace(/\s+/g, " ").trim();
+  const description = rawDescription.length > 160 ? rawDescription.slice(0, 157).replace(/\s+\S*$/, "") + "…" : rawDescription;
+
   return {
     title,
     description,
     alternates: { canonical: `/heritage/${s.id}` },
     openGraph: {
-      title,
+      title: `${s.name} — ${era} ${kind} in Hyderabad`,
       description,
       url: `${SITE}/heritage/${s.id}`,
       images: [{ url: "/assets/og-image.jpg", width: 1200, height: 630 }],
@@ -51,17 +57,27 @@ export default function HeritageSite({ params }) {
   const sibs = siblingsOf(s, 5);
   const era = ERAS[s.era];
 
+  const isFree = s.access === "open" || s.access === "ruin" || s.ticket?.inr === 0;
+
   const ld = {
     "@context": "https://schema.org",
-    "@type": ["LandmarksOrHistoricalBuildings", "TouristAttraction"],
+    "@type": ["TouristAttraction", "LandmarksOrHistoricalBuildings"],
     name: s.name,
     alternateName: s.altNames || undefined,
     description: s.summary || undefined,
     url: `${SITE}/heritage/${s.id}`,
     geo: { "@type": "GeoCoordinates", latitude: s.lat, longitude: s.lng },
-    address: { "@type": "PostalAddress", addressLocality: s.area || "Hyderabad", addressRegion: "Telangana", addressCountry: "IN" },
+    address: { 
+      "@type": "PostalAddress", 
+      addressLocality: s.area || "Hyderabad", 
+      addressRegion: "Telangana", 
+      addressCountry: "IN" 
+    },
     sameAs: [s.wikipedia, s.wikidata ? `https://www.wikidata.org/wiki/${s.wikidata}` : null].filter(Boolean),
-    isAccessibleForFree: s.access === "open" || s.access === "ruin",
+    isAccessibleForFree: isFree,
+    publicAccess: s.access === "open" || s.access === "ticketed",
+    openingHours: s.ticket?.hours || undefined,
+    priceRange: s.ticket?.inr != null ? (s.ticket.inr === 0 ? "₹0" : `₹${s.ticket.inr}`) : undefined,
   };
 
   const breadcrumb = {

@@ -7,14 +7,14 @@ import { SITES, COUNTS, ERAS } from "../../lib/heritage.js";
 const SITE = "https://mapmyhyd.com";
 
 export const metadata = {
-  title: "Best Heritage Sites & Historical Places to Visit in Hyderabad",
+  title: "Hyderabad Heritage Sites & Historical Places Map — 45+ Monuments & Stepwells",
   description:
-    "Explore the best heritage sites and historical places in Hyderabad — Qutb Shahi tombs, Nizam-era palaces, stepwells and British-era civic buildings. Filter by era, type and protection status. One of Hyderabad's top tourism destinations, mapped.",
+    "Explore 45+ heritage sites in Hyderabad — Qutb Shahi tombs, Nizam palaces, historic stepwells (baolis), and British-era civic landmarks. Timings, entry fees, metro connectivity and locations mapped.",
   alternates: { canonical: "/heritage" },
   openGraph: {
-    title: "Hyderabad heritage sites, by era",
+    title: "Hyderabad Heritage Sites & Historical Places Map — 45+ Monuments & Stepwells",
     description:
-      "Monuments, stepwells, palaces and tombs across Hyderabad — Qutb Shahi to Nizam-era, with what's protected and what's at risk.",
+      "Explore 45+ heritage sites in Hyderabad — Qutb Shahi tombs, Nizam palaces, stepwells and British-era civic landmarks with timings, entry fees and metro routes.",
     url: `${SITE}/heritage`,
     images: [{ url: "/assets/og-image.jpg", width: 1200, height: 630 }],
   },

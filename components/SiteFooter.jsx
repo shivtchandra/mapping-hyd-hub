@@ -24,7 +24,7 @@ export default function SiteFooter() {
           <a href="https://startups.mapmyhyd.com/jobs">Jobs</a>
           <a href="https://eats.mapmyhyd.com/">Eats</a>
           <a href="https://eats.mapmyhyd.com/rankings/best-buffet-in-hyderabad">Best Buffet</a>
-          <Link href="/heritage">Heritage</Link>
+          <a href="https://heritage.mapmyhyd.com/">Heritage</a>
           <Link href="/about">About</Link>
         </nav>
 

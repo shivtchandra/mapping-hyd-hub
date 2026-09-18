@@ -6,26 +6,27 @@ const SITE = "https://mapmyhyd.com";
 export const metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "Mapping HYD — Hyderabad, one layer at a time.",
+    default: "Mapping HYD — Interactive Maps of Hyderabad Food, Heritage & Startups",
     template: "%s · Mapping HYD",
   },
   description:
-    "Discover the best places to visit in Hyderabad — startups, food, heritage sites, lakes and weekend escapes, mapped one layer at a time. Your guide to what to do in Hyderabad.",
+    "Discover Hyderabad with curated interactive maps — 45+ heritage sites and stepwells, best food & biryani discovery, and 1,100+ tech startups mapped across the city.",
   alternates: { canonical: "https://mapmyhyd.com/" },
   openGraph: {
     type: "website",
     locale: "en_IN",
     siteName: "Mapping HYD",
     url: SITE,
-    title: "Mapping HYD — Hyderabad, one layer at a time.",
+    title: "Mapping HYD — Interactive Maps of Hyderabad Food, Heritage & Startups",
     description:
-      "Best places to visit in Hyderabad — heritage sites, lakes, food, startups and weekend escapes, mapped one layer at a time.",
+      "Discover Hyderabad with curated interactive maps — 45+ heritage sites and stepwells, best food & biryani discovery, and 1,100+ tech startups mapped across the city.",
     images: [{ url: "/assets/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mapping HYD — Hyderabad, one layer at a time.",
-    description: "Best places to visit in Hyderabad — heritage, lakes, food and more, mapped one layer at a time.",
+    title: "Mapping HYD — Interactive Maps of Hyderabad Food, Heritage & Startups",
+    description:
+      "Discover Hyderabad with curated interactive maps — 45+ heritage sites, food discovery, and 1,100+ tech startups.",
     images: ["/assets/og-image.jpg"],
   },
   icons: { icon: "/assets/favicon.svg" },
@@ -49,7 +50,10 @@ const orgLd = {
       name: "Mapping HYD",
       url: `${SITE}/`,
       logo: `${SITE}/assets/favicon.svg`,
-      founder: [{ "@type": "Person", name: "Shiva Chandra Takkelapati" }],
+      founder: [
+        { "@type": "Person", name: "Shiva Chandra Takkelapati" },
+        { "@type": "Person", name: "Nitya" },
+      ],
       sameAs: [
         "https://mapmyhyd.com/",
         "https://eats.mapmyhyd.com/",

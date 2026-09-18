@@ -30,9 +30,9 @@ const LAYERS = [
     key: "heritage",
     name: "Deccan Heritage",
     desc: "Walk the city’s history — every monument, tomb and stepwell, by era, with routes you build.",
-    href: "/heritage",
-    status: "In development",
-    live: false,
+    href: "https://heritage.mapmyhyd.com/",
+    status: "Live",
+    live: true,
   },
   // Layers 04+ kept private — not listing publicly yet
 ];
@@ -40,7 +40,7 @@ const LAYERS = [
 export default function Home() {
   return (
     <>
-      <SiteHeader liveLabel="01 live" />
+      <SiteHeader liveLabel="03 live" />
       <LandingTracker />
 
       <main>
@@ -135,7 +135,7 @@ export default function Home() {
           </p>
           <div className="layers-heading">
             <h2 id="layers-title">The layers</h2>
-            <p>01 live · more in progress</p>
+            <p>03 live · more in progress</p>
           </div>
 
           <figure className="layers-divider" aria-hidden="true">
@@ -176,10 +176,11 @@ export default function Home() {
               <figcaption>Six layers, one city.</figcaption>
             </figure>
           </div>
+
+          <div className="layers-backer-dock">
+            <SeriesSupport embedded />
+          </div>
         </section>
-
-        <SeriesSupport />
-
       </main>
 
       <SiteFooter />

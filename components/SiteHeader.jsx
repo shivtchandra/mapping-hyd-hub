@@ -3,7 +3,7 @@ import Link from "next/link";
 const NAV = [
   { label: "Hyderabad Startup Map", href: "https://startups.mapmyhyd.com/", key: "startups" },
   { label: "Eats", href: "https://eats.mapmyhyd.com/", key: "eats" },
-  { label: "Heritage", href: "/heritage", key: "heritage" },
+  { label: "Heritage", href: "https://heritage.mapmyhyd.com/", key: "heritage" },
   { label: "About", href: "/about", key: "about" },
 ];
 
