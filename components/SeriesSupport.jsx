@@ -20,7 +20,11 @@ export default function SeriesSupport({ embedded = false }) {
   useEffect(() => {
     try {
       if (typeof window !== "undefined") {
-        setSupported(localStorage.getItem(LOCAL_KEY) === "1");
+        const hasLocal = localStorage.getItem(LOCAL_KEY) === "1";
+        const hasCookie = document.cookie.includes("hyd_supported=1");
+        if (hasLocal || hasCookie) {
+          setSupported(true);
+        }
       }
     } catch {}
 
@@ -29,6 +33,12 @@ export default function SeriesSupport({ embedded = false }) {
       .then((d) => {
         if (d && typeof d.count === "number") {
           setCount(d.count);
+        }
+        if (d?.userBacked) {
+          setSupported(true);
+          try {
+            localStorage.setItem(LOCAL_KEY, "1");
+          } catch {}
         }
       })
       .catch(() => {});
@@ -51,6 +61,7 @@ export default function SeriesSupport({ embedded = false }) {
     try {
       if (typeof window !== "undefined") {
         localStorage.setItem(LOCAL_KEY, "1");
+        document.cookie = "hyd_supported=1; max-age=31536000; path=/; SameSite=Lax";
       }
     } catch {}
 
