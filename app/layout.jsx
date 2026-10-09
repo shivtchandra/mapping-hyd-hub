@@ -80,7 +80,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
         />
       </head>
-      <body>{children}<Analytics /></body>
+      <body>{children}{process.env.HYD_STATIC_EXPORT !== "1" && <Analytics />}</body>
     </html>
   );
 }

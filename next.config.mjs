@@ -6,7 +6,12 @@ const STARTUPS = process.env.STARTUPS_ORIGIN || "https://startups.mapmyhyd.com";
 const EATS = process.env.EATS_ORIGIN || "https://eats.mapmyhyd.com";
 const HERITAGE_APP = process.env.HERITAGE_APP_ORIGIN || "https://heritage.mapmyhyd.com";
 
+// HYD_STATIC_EXPORT=1 (CI only, scripts/build-static.sh) builds the whole site
+// as static files for Cloudflare Pages.
+const staticExport = process.env.HYD_STATIC_EXPORT === "1";
+
 const nextConfig = {
+  ...(staticExport ? { output: "export", images: { unoptimized: true } } : {}),
   async redirects() {
     return [
       // Collapse www onto the apex host Google should index.
