@@ -48,13 +48,16 @@ const orgLd = {
       "@type": "Organization",
       "@id": `${SITE}/#organization`,
       name: "Mapping HYD",
+      alternateName: ["MapMyHyd", "Map My Hyd"],
       url: `${SITE}/`,
       logo: `${SITE}/assets/favicon.svg`,
       founder: [
         { "@type": "Person", name: "Shiva Chandra Takkelapati" },
         { "@type": "Person", name: "Nitya" },
       ],
+      // TODO: add LinkedIn company page URL once it exists.
       sameAs: [
+        "https://www.instagram.com/mapmyhyd/",
         "https://mapmyhyd.com/",
         "https://eats.mapmyhyd.com/",
         "https://startups.mapmyhyd.com/",
