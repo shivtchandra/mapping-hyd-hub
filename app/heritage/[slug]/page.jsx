@@ -92,7 +92,7 @@ export default function HeritageSite({ params }) {
 
   return (
     <>
-      <SiteHeader active="heritage" liveLabel="02 live" />
+      <SiteHeader active="heritage" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <script
         type="application/ld+json"

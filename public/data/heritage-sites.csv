@@ -1,0 +1,46 @@
+id,name,lat,lng,era,yearBuilt,type,status,access,area,wikidata,verifiedAt
+afzal-gunj-bridge,Afzal Gunj Bridge,17.3775,78.4772,asaf-jahi,1858,civic,unprotected,open,Afzalgunj,,2026-09-01
+all-saints-church,All Saints' Church,17.4343,78.5006,british-residency,1860,church,intach-listed,open,Trimulgherry / Bowenpally,,2026-09-01
+asman-garh-palace,Asman Garh Palace,17.3562,78.5331,asaf-jahi,1885,palace,unprotected,restricted,Malakpet,,2026-09-01
+badshahi-ashurkhana,Badshahi Ashurkhana,17.3625,78.4783,qutb-shahi,1595,civic,state-protected,open,Charminar,Q4837211,2026-09-01
+bansilalpet-stepwell,Bansilalpet Stepwell,17.4432,78.5008,nizam-civic,early 20th century,baoli,intach-listed,open,Secunderabad,,2026-09-01
+bella-vista,Bella Vista,17.4258,78.4562,asaf-jahi,early 20th century,mansion,intach-listed,restricted,Khairatabad,,2026-09-01
+british-residency,British Residency,17.3808,78.4822,british-residency,1803–1806,mansion,at-risk,restricted,Koti,Q7841835,2026-09-01
+charminar,Charminar,17.3616,78.4747,qutb-shahi,1591,gateway,asi-protected,ticketed,Charminar,Q747708,2026-09-01
+chowmahalla-palace,Chowmahalla Palace,17.3578,78.4717,asaf-jahi,1750s–1869,palace,intach-listed,ticketed,Khilwat,Q2962545,2026-09-01
+city-college-hyderabad,City College,17.3729,78.4772,nizam-civic,1921,civic,state-protected,restricted,Afzalgunj,,2026-09-01
+dabirpura-gate,Dabirpura Darwaza,17.3618,78.4906,qutb-shahi,17th century,gateway,unprotected,open,Dabeerpura,,2026-09-01
+errum-manzil,Errum Manzil,17.4166,78.4548,asaf-jahi,1870s,palace,at-risk,restricted,Erragadda / Khairatabad,Q5385621,2026-09-01
+falaknuma-palace,Falaknuma Palace,17.3306,78.4672,asaf-jahi,1893,palace,intach-listed,restricted,Falaknuma,Q5432935,2026-09-01
+golconda-fort,Golconda Fort,17.3833,78.4011,qutb-shahi,16th century (earlier core 13th c.),fort,asi-protected,ticketed,Golconda,Q1543848,2026-09-01
+hayat-bakshi-mosque,Hayat Bakshi Mosque,17.3196,78.6031,qutb-shahi,1672,mosque,asi-protected,open,Hayathnagar,,2026-09-01
+telangana-high-court,High Court of Telangana,17.3743,78.4745,nizam-civic,1915–1919,civic,state-protected,restricted,Kali Kaman,Q5756255,2026-09-01
+nampally-station,Hyderabad Deccan Station,17.3934,78.464,nizam-civic,"1874, rebuilt 1921",civic,intach-listed,open,Nampally,Q5958026,2026-09-01
+jubilee-hall,Jubilee Hall,17.4066,78.4666,nizam-civic,1936,civic,state-protected,restricted,Public Gardens,,2026-09-01
+kachiguda-station,Kachiguda Railway Station,17.3906,78.499,nizam-civic,1916,civic,intach-listed,open,Kachiguda,Q6343060,2026-09-01
+khairtabad-mosque,Khairtabad Mosque,17.4128,78.46,qutb-shahi,1626,mosque,asi-protected,open,Khairatabad,,2026-09-01
+king-kothi-palace,King Kothi Palace,17.4009,78.4795,asaf-jahi,early 20th century,palace,unprotected,restricted,King Koti,Q6412640,2026-09-01
+mahbub-chowk-clock-tower,Mahbub Chowk Clock Tower,17.3592,78.4705,asaf-jahi,1892,civic,intach-listed,open,Charminar,,2026-09-01
+mahbub-mansion,Mahbub Mansion,17.3735,78.5015,asaf-jahi,late 19th century,palace,at-risk,restricted,Malakpet,,2026-09-01
+mecca-masjid,Makkah Masjid,17.3604,78.4736,qutb-shahi,1617–1694,mosque,state-protected,open,Charminar,Q1892668,2026-09-01
+moazzam-jahi-market,Moazzam Jahi Market,17.3852,78.474,nizam-civic,1933–1935,civic,state-protected,open,Abids,Q6889696,2026-09-01
+moula-ali-dargah,Moula Ali Dargah,17.4623,78.5561,qutb-shahi,1578,civic,state-protected,open,Moula Ali,,2026-09-01
+osmania-general-hospital,Osmania General Hospital,17.3732,78.4757,nizam-civic,1919–1925,civic,at-risk,restricted,Afzalgunj,Q7107517,2026-09-01
+paigah-tombs,Paigah Tombs,17.3521,78.5062,asaf-jahi,1780s onward,tomb,asi-protected,open,Pisal Banda,Q7124881,2026-09-01
+puranapul,Purana Pul,17.3706,78.4585,qutb-shahi,1578,civic,state-protected,open,Purana Pul,,2026-09-01
+purani-haveli,Purani Haveli,17.3639,78.4783,asaf-jahi,late 18th century,palace,intach-listed,restricted,Purani Haveli,Q7261305,2026-09-01
+qutb-shahi-tombs,Qutb Shahi Tombs,17.3949,78.3963,qutb-shahi,1543–1672,tomb,asi-protected,ticketed,Ibrahim Bagh,Q2338524,2026-09-01
+rashtrapati-nilayam,Rashtrapati Nilayam,17.5088,78.5043,british-residency,1860,palace,state-protected,ticketed,Bolarum,Q3736823,2026-09-01
+raymond-tomb,Raymond's Tomb,17.3711,78.5092,asaf-jahi,c. 1798,tomb,state-protected,open,Saroornagar Road,Q7300223,2026-09-01
+saidani-ma-tomb,Saidani Ma Tomb,17.3979,78.3931,qutb-shahi,1883,tomb,state-protected,open,Ibrahim Bagh,,2026-09-01
+salar-jung-museum,Salar Jung Museum,17.3713,78.4803,asaf-jahi,collection assembled 19th–20th c.; present building 1968,civic,state-protected,ticketed,Darushifa,Q3421364,2026-09-01
+sardar-mahal,Sardar Mahal,17.3586,78.4744,asaf-jahi,1900,palace,at-risk,restricted,Charminar,,2026-09-01
+secunderabad-clock-tower,Secunderabad Clock Tower,17.4399,78.4983,british-residency,1897,civic,intach-listed,open,Secunderabad,Q7444811,2026-09-01
+sir-ronald-ross-building,Sir Ronald Ross Building,17.4469,78.4665,british-residency,1895,civic,state-protected,restricted,Begumpet,,2026-09-01
+spanish-mosque,Spanish Mosque,17.4416,78.4664,asaf-jahi,1906,mosque,intach-listed,open,Begumpet,Q7574332,2026-09-01
+st-johns-church-secunderabad,St John's Church,17.4519,78.5024,british-residency,1813,church,intach-listed,open,Secunderabad,,2026-09-01
+state-central-library,State Central Library,17.3728,78.4796,nizam-civic,1891 (present building 1936),civic,state-protected,open,Afzalgunj,Q7603649,2026-09-01
+taramati-baradari,Taramati Baradari,17.3762,78.3861,qutb-shahi,17th century,civic,state-protected,ticketed,Ibrahim Bagh,Q7684554,2026-09-01
+assembly-building,Telangana Legislative Assembly,17.4076,78.4646,nizam-civic,1913,civic,state-protected,restricted,Public Gardens,Q7698391,2026-09-01
+telangana-archaeology-museum,Telangana State Museum,17.4062,78.4691,nizam-civic,1930s,civic,state-protected,ticketed,Public Gardens,Q7698472,2026-09-01
+toli-masjid,Toli Masjid,17.3712,78.4432,qutb-shahi,1671,mosque,asi-protected,open,Karwan,Q7814256,2026-09-01

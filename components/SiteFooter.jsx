@@ -1,47 +1,50 @@
 import Link from "next/link";
+import { LAYERS } from "../lib/layers.js";
+import FooterWord from "./FooterWord.jsx";
+import "./site-footer.css";
+
+const MORE = [
+  { label: "Data & sources", href: "/data" },
+  { label: "About", href: "/about" },
+  { label: "Instagram", href: "https://www.instagram.com/mapmyhyd/" },
+  { label: "Suggest a map", href: "mailto:shivachandra9490@gmail.com" },
+];
 
 export default function SiteFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="site-footer" aria-label="Site footer">
-      <div className="footer-art" aria-hidden="true">
-        <picture>
-          <source srcSet="/assets/hero-full.webp" type="image/webp" />
-          <img src="/assets/hero-full.jpg" alt="" loading="lazy" />
-        </picture>
+    <footer className="sf" aria-label="Site footer">
+      {/* Wordmark first, links after: the page keeps scrolling while the letters rise. */}
+      <FooterWord />
+
+      <div className="sf-links">
+        <nav aria-label="Maps">
+          <p className="sf-head">The maps</p>
+          {LAYERS.map((l) => (
+            <a key={l.key} href={l.href} data-layer={l.key}>
+              <i className="sf-dot" aria-hidden="true" />
+              {l.short}
+            </a>
+          ))}
+        </nav>
+        <nav aria-label="More">
+          <p className="sf-head">More</p>
+          {MORE.map((l) => (
+            <Link key={l.href} href={l.href}>
+              {l.label}
+            </Link>
+          ))}
+        </nav>
       </div>
 
-      <div className="footer-panel">
-        <p className="footer-eyebrow">Mapping HYD.</p>
-        <p className="footer-title">
-          Built in
-          <br />
-          <em>Hyderabad.</em>
-        </p>
-
-        <nav className="footer-nav" aria-label="Footer">
-          <a href="https://startups.mapmyhyd.com/">Hyderabad Startup Map</a>
-          <a href="https://startups.mapmyhyd.com/jobs">Jobs</a>
-          <a href="https://eats.mapmyhyd.com/">Eats</a>
-          <a href="https://eats.mapmyhyd.com/rankings/best-buffet-in-hyderabad">Best Buffet</a>
-          <a href="https://heritage.mapmyhyd.com/">Heritage</a>
-          <Link href="/about">About</Link>
-        </nav>
-
-        <div className="footer-tail">
-          <p className="footer-contact">
-            Have an idea for the series?{" "}
-            <a href="mailto:shivachandra9490@gmail.com">shivachandra9490@gmail.com</a>
-          </p>
-          <p className="footer-meta">
-            Built with love by{" "}
-            <a href="https://www.tekkdevv.com/" target="_blank" rel="noopener noreferrer">
-              tekkdevv
-            </a>
-            . A living atlas of the city, mapped one layer at a time.
-            <br />© {year} Mapping HYD. · 17.3850° N, 78.4867° E
-          </p>
-        </div>
+      <div className="sf-bottom">
+        <span>© {year} Mapping HYD</span>
+        <span>
+          Built by{" "}
+          <a href="https://www.tekkdevv.com/" target="_blank" rel="noopener noreferrer">
+            tekkdevv
+          </a>
+        </span>
       </div>
     </footer>
   );

@@ -1,14 +1,13 @@
 import Link from "next/link";
+import { LAYERS, LIVE_LABEL } from "../lib/layers.js";
 
 const NAV = [
-  { label: "Hyderabad Startup Map", href: "https://startups.mapmyhyd.com/", key: "startups" },
-  { label: "Eats", href: "https://eats.mapmyhyd.com/", key: "eats" },
-  { label: "Heritage", href: "https://heritage.mapmyhyd.com/", key: "heritage" },
+  ...LAYERS.map((l) => ({ label: l.short, href: l.href, key: l.key })),
   { label: "About", href: "/about", key: "about" },
 ];
 
 // `active` = one of the NAV keys, to mark the current page.
-export default function SiteHeader({ active, liveLabel = "03 live" }) {
+export default function SiteHeader({ active, liveLabel = LIVE_LABEL }) {
   return (
     <header className="site-nav">
       <div className="nav-inner">

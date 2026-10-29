@@ -52,7 +52,7 @@ const rows = SITES.map((s) => ({
 export default function HeritageIndex() {
   return (
     <>
-      <SiteHeader active="heritage" liveLabel="02 live" />
+      <SiteHeader active="heritage" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(listLd) }}

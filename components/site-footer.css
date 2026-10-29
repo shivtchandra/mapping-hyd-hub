@@ -1,0 +1,114 @@
+/* Footer: one row of links, then a giant wordmark whose letters rise as you scroll to it. */
+.sf {
+  margin-top: clamp(40px, 6vw, 80px);
+  border-top: 1px solid rgba(23, 21, 18, 0.15);
+  overflow: clip; /* hidden would make this the scroll container and break the view timeline */
+}
+
+.sf-links {
+  width: var(--page);
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 56px) 0 clamp(28px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 220px));
+  gap: 24px;
+}
+
+.sf-links nav {
+  display: grid;
+  align-content: start;
+}
+
+.sf-head {
+  margin: 0 0 6px;
+  color: rgba(23, 21, 18, 0.45);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sf-links a {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(23, 21, 18, 0.1);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 140ms ease, padding-left 160ms ease;
+}
+
+.sf-links a:hover {
+  padding-left: 4px;
+  color: var(--eats);
+}
+
+.sf-dot {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+[data-layer="live"] .sf-dot { background: var(--forest); }
+[data-layer="eats"] .sf-dot { background: var(--eats); }
+[data-layer="startup"] .sf-dot { background: var(--startup); }
+[data-layer="heritage"] .sf-dot { background: var(--heritage); }
+
+.sf-word {
+  margin: clamp(28px, 5vw, 56px) 0 0;
+  overflow: clip; /* letters start below this edge */
+  color: var(--ink);
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-size: 15.8vw;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.sf-word span span {
+  display: inline-block;
+}
+
+.sf-word em {
+  color: var(--eats);
+}
+
+/* FooterWord arms this once JS runs, then flips it to "in" when the word is well on screen */
+.sf-word[data-reveal] span span {
+  transform: translateY(105%);
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1) calc(var(--i) * 55ms);
+}
+
+.sf-word[data-reveal="in"] span span {
+  transform: translateY(0);
+}
+
+.sf-bottom {
+  width: var(--page);
+  margin: 0 auto;
+  padding: 16px 0 calc(20px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px 24px;
+  color: rgba(23, 21, 18, 0.55);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+}
+
+.sf-bottom a {
+  color: var(--ink);
+}

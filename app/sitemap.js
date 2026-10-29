@@ -8,6 +8,7 @@ export default function sitemap() {
     { path: "", priority: 1 },
     { path: "/about", priority: 0.8 },
     { path: "/heritage", priority: 0.9 },
+    { path: "/data", priority: 0.7 },
   ].map(({ path: p, priority }) => ({
     url: `${SITE}${p || "/"}`,
     lastModified: now,

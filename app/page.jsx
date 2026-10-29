@@ -5,59 +5,69 @@ import Reveal from "../components/Reveal.jsx";
 import LandingTracker from "../components/LandingTracker.jsx";
 import SeriesSupport from "../components/SeriesSupport.jsx";
 import LayerClickTracker from "../components/LayerClickTracker.jsx";
+import NewsletterSignup from "../components/NewsletterSignup.jsx";
+import SideScroll from "../components/SideScroll.jsx";
+import { LAYERS, LIVE_COUNT, LIVE_LABEL, TOTAL_PLACES } from "../lib/layers.js";
+import "./home.css";
 
-const LAYERS = [
-  {
-    n: "01",
-    key: "startup",
-    name: "Hyderabad Startup Map",
-    desc: "See who’s building in Hyderabad — companies, funding and open jobs, on a live map.",
-    href: "https://startups.mapmyhyd.com/",
-    status: "Live",
-    live: true,
-  },
-  {
-    n: "02",
-    key: "eats",
-    name: "Eateries Race",
-    desc: "Find where to eat near you, check in on the spot, and climb a city-wide leaderboard.",
-    href: "https://eats.mapmyhyd.com/",
-    status: "Live",
-    live: true,
-  },
-  {
-    n: "03",
-    key: "heritage",
-    name: "Deccan Heritage",
-    desc: "Walk the city’s history — every monument, tomb and stepwell, by era, with routes you build.",
-    href: "https://heritage.mapmyhyd.com/",
-    status: "Live",
-    live: true,
-  },
-  // Layers 04+ kept private — not listing publicly yet
+const mapsLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Mapping HYD maps",
+  itemListElement: LAYERS.map((l, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "WebApplication",
+      name: l.name,
+      url: l.href,
+      description: l.desc,
+      applicationCategory: "Maps",
+      operatingSystem: "Any",
+      areaServed: { "@type": "City", name: "Hyderabad" },
+    },
+  })),
+};
+
+// Maps beyond these stay private until they ship; see data/layers.json.
+const STEPS = [
+  { title: "Pick a question", body: "Where to live, where to eat, who’s hiring, what to see." },
+  { title: "Open its map", body: "Every pin is a real place at its real location." },
+  { title: "Check the source", body: "Each map shows where its data comes from and when it was updated." },
 ];
 
 export default function Home() {
   return (
     <>
-      <SiteHeader liveLabel="03 live" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(mapsLd) }} />
+      <SiteHeader />
       <LandingTracker />
 
       <main>
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow">A living atlas of Hyderabad · Est. 2026</p>
+            <p className="eyebrow">Mapping HYD · {LIVE_COUNT} maps live</p>
             <h1 id="hero-title">
-              <span>Mapping</span>
-              <span>HYD.</span>
+              <span>Interactive</span>
+              <span>maps of</span>
+              <span>Hyderabad.</span>
             </h1>
-            <p className="hero-tagline">Hyderabad, one layer at a time.</p>
             <p className="hero-summary">
-              Maps that answer the questions this city actually asks — where to eat, where to
-              live, what’s worth the drive, what’s being lost. Built one layer at a time.
+              We take Hyderabad’s scattered data — rents, restaurants, startups, monuments — and turn it
+              into maps that each answer one question.
             </p>
-            <a className="hero-cta" href="#layers">
-              Explore the layers <span aria-hidden="true">↓</span>
+            <ol className="hero-steps" aria-label="How it works">
+              {STEPS.map((s, i) => (
+                <li key={s.title}>
+                  <span className="hero-step-n">{i + 1}</span>
+                  <span>
+                    <strong>{s.title}</strong> {s.body}
+                  </span>
+                </li>
+              ))}
+            </ol>
+            <a className="hero-pick" href="#maps">
+              Pick a map <span aria-hidden="true">↓</span>
             </a>
           </div>
 
@@ -76,20 +86,59 @@ export default function Home() {
             <figcaption>Charminar · Hussain Sagar · the Financial District — one route.</figcaption>
           </figure>
 
-          <figure className="hero-figure mobile">
-            <picture>
-              <source srcSet="/assets/campaign-expanded.webp" type="image/webp" />
-              <img
-                src="/assets/campaign-expanded.jpg"
-                width="1086"
-                height="1448"
-                alt="Illustrated Hyderabad at 17.3850°N, 78.4867°E — Charminar, a lake, the Metro and Irani chai."
-                fetchPriority="high"
-                decoding="async"
-              />
-            </picture>
-          </figure>
         </section>
+
+        <section className="layers maps band band--paper" id="maps" aria-labelledby="maps-title">
+          <SideScroll
+            trackClassName="map-grid"
+            head={
+              <div className="maps-head">
+                <p className="section-label">The maps</p>
+                <h2 id="maps-title">Pick a map.</h2>
+                <p className="maps-count">
+                  {LIVE_LABEL} · {TOTAL_PLACES.toLocaleString("en-IN")}+ places · tap one to open it
+                </p>
+              </div>
+            }
+          >
+            {LAYERS.map((l) => (
+              <LayerClickTracker key={l.key} layer={l.key}>
+                <Link className="map-card" data-layer={l.key} href={l.href}>
+                  <figure className="map-shot">
+                    <img
+                      src={l.image}
+                      alt={l.alt}
+                      width="1200"
+                      height="750"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                  <div className="map-body">
+                    <p className="map-meta">
+                      <span>{l.n}</span>
+                      <span>Live</span>
+                    </p>
+                    <h3 className="map-name">{l.name}</h3>
+                    <p className="map-desc">{l.question}</p>
+                    <div className="map-foot">
+                      <span className="map-stat">{l.stat}</span>
+                      <span className="map-open">
+                        Open map <span aria-hidden="true">↗</span>
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </LayerClickTracker>
+            ))}
+          </SideScroll>
+
+          <Link href="/data" className="origin-more maps-sources">
+            Where the data comes from →
+          </Link>
+        </section>
+
+        <NewsletterSignup source="home" />
 
         <section className="origin band band--deep" aria-labelledby="origin-label">
           <div className="origin-inner">
@@ -101,90 +150,27 @@ export default function Home() {
               like San Francisco and Bangalore, and one question stuck: why doesn’t Hyderabad have
               this? So I built a startup map. People shared it, asked to be added — and the gap was
               obvious. <em>Not that the city lacked substance, but that nobody had built a visible,
-              digital layer on top of it.</em> One map became a series.
+              digital layer on top of it.</em> One map became four.
             </p>
             <Link href="/about" className="origin-more">
               Read the full story →
             </Link>
           </div>
 
+          {/* Paper is cut out of these files (transparent), so they sit on any band colour. */}
           <figure className="origin-figure" aria-hidden="true">
-            <picture>
-              <source srcSet="/assets/page-atlas.webp" type="image/webp" />
-              <img src="/assets/page-atlas.webp" alt="" loading="lazy" />
-            </picture>
+            <img className="origin-strip" src="/assets/page-atlas-cut.webp" alt="" loading="lazy" />
+            <img className="origin-scene" src="/assets/atlas-scene.webp" alt="" width="782" height="695" loading="lazy" />
           </figure>
         </section>
 
-        <section className="purpose band band--paper" aria-labelledby="purpose-label">
-          <p className="section-label" id="purpose-label">
-            What this is
-          </p>
-          <div>
-            <p className="purpose-copy">
-              Hyderabad has the data, places and stories. <em>They are scattered.</em> Mapping HYD
-              turns them into useful, searchable maps — one layer at a time.
-            </p>
-            <p className="purpose-kicker">Open data · real places · a map you can actually use.</p>
-          </div>
-        </section>
-
-        <section className="layers band band--deep" id="layers" aria-labelledby="layers-title">
-          <p className="section-label" style={{ marginBottom: 8 }}>
-            The maps
-          </p>
-          <div className="layers-heading">
-            <h2 id="layers-title">The layers</h2>
-            <p>03 live · more in progress</p>
-          </div>
-
-          <figure className="layers-divider" aria-hidden="true">
-            <img src="/assets/hero-full.webp" alt="" loading="lazy" />
-          </figure>
-
-          <div className="layers-grid">
-            <div className="layer-list">
-              {LAYERS.map((l) =>
-                l.live ? (
-                  <LayerClickTracker key={l.n} layer={l.key}>
-                    <Link className="layer-row live" data-layer={l.key} href={l.href}>
-                      <span className="layer-number">{l.n}</span>
-                      <h3 className="layer-name">{l.name}</h3>
-                      <p className="layer-description">{l.desc}</p>
-                      <span className="layer-status">{l.status}</span>
-                      <span className="layer-arrow" aria-hidden="true">
-                        ↗
-                      </span>
-                    </Link>
-                  </LayerClickTracker>
-                ) : (
-                  <article key={l.n} className="layer-row" data-layer={l.key}>
-                    <span className="layer-number">{l.n}</span>
-                    <h3 className="layer-name">{l.name}</h3>
-                    <p className="layer-description">{l.desc}</p>
-                    <span className="layer-status">{l.status}</span>
-                    <span className="layer-arrow" aria-hidden="true">
-                      —
-                    </span>
-                  </article>
-                )
-              )}
-            </div>
-
-            <figure className="layers-rail" aria-hidden="true">
-              <img src="/assets/page-atlas.webp" alt="" loading="lazy" />
-              <figcaption>Six layers, one city.</figcaption>
-            </figure>
-          </div>
-
-          <div className="layers-backer-dock">
-            <SeriesSupport embedded />
-          </div>
+        <section className="backer-end" aria-label="What we map next">
+          <SeriesSupport embedded />
         </section>
       </main>
 
       <SiteFooter />
-      <Reveal />
+      <Reveal selector=".map-card" />
     </>
   );
 }

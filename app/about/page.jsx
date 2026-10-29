@@ -168,7 +168,7 @@ const aboutLd = {
 export default function About() {
   return (
     <>
-      <SiteHeader active="about" liveLabel="03 live" />
+      <SiteHeader active="about" />
       <LandingTracker event="about_view" />
       <script
         type="application/ld+json"

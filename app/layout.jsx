@@ -6,27 +6,27 @@ const SITE = "https://mapmyhyd.com";
 export const metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "Mapping HYD — Interactive Maps of Hyderabad Food, Heritage & Startups",
+    default: "Mapping HYD — Interactive Maps of Hyderabad: Where to Live, Eat, Startups & Heritage",
     template: "%s · Mapping HYD",
   },
   description:
-    "Discover Hyderabad with curated interactive maps — 45+ heritage sites and stepwells, best food & biryani discovery, and 1,100+ tech startups mapped across the city.",
+    "Four interactive maps of Hyderabad — compare 55 areas to live in, find 3,600+ places to eat, explore 1,200+ startups, and walk 85+ heritage sites. Real places, open data.",
   alternates: { canonical: "https://mapmyhyd.com/" },
   openGraph: {
     type: "website",
     locale: "en_IN",
     siteName: "Mapping HYD",
     url: SITE,
-    title: "Mapping HYD — Interactive Maps of Hyderabad Food, Heritage & Startups",
+    title: "Mapping HYD — Interactive Maps of Hyderabad: Where to Live, Eat, Startups & Heritage",
     description:
-      "Discover Hyderabad with curated interactive maps — 45+ heritage sites and stepwells, best food & biryani discovery, and 1,100+ tech startups mapped across the city.",
+      "Four interactive maps of Hyderabad — compare 55 areas to live in, find 3,600+ places to eat, explore 1,200+ startups, and walk 85+ heritage sites. Real places, open data.",
     images: [{ url: "/assets/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mapping HYD — Interactive Maps of Hyderabad Food, Heritage & Startups",
+    title: "Mapping HYD — Interactive Maps of Hyderabad: Where to Live, Eat, Startups & Heritage",
     description:
-      "Discover Hyderabad with curated interactive maps — 45+ heritage sites, food discovery, and 1,100+ tech startups.",
+      "Four interactive maps of Hyderabad — where to live, where to eat, who's building, what's worth seeing.",
     images: ["/assets/og-image.jpg"],
   },
   icons: { icon: "/assets/favicon.svg" },
@@ -40,7 +40,7 @@ const orgLd = {
       "@id": `${SITE}/#website`,
       url: `${SITE}/`,
       name: "Mapping HYD",
-      description: "A growing digital atlas of Hyderabad, built one layer at a time.",
+      description: "Interactive maps of Hyderabad: where to live, where to eat, who's building, what's worth seeing.",
       inLanguage: "en-IN",
       publisher: { "@id": `${SITE}/#organization` },
     },
@@ -59,8 +59,10 @@ const orgLd = {
       sameAs: [
         "https://www.instagram.com/mapmyhyd/",
         "https://mapmyhyd.com/",
+        "https://live.mapmyhyd.com/",
         "https://eats.mapmyhyd.com/",
         "https://startups.mapmyhyd.com/",
+        "https://heritage.mapmyhyd.com/",
         "https://github.com/shivtchandra/hydstartuplist",
       ],
     },

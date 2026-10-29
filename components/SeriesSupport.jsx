@@ -2,14 +2,16 @@
 
 import { useEffect, useState } from "react";
 import { trackEvent } from "../lib/engagement-client.js";
+import { LIVE_COUNT } from "../lib/layers.js";
 
 const LOCAL_KEY = "hyd-series-supported";
 
+// Where to Live shipped, so it left this list; numbering continues after the live maps.
 const UPCOMING = [
-  { n: "04", label: "Where to Live" },
   { n: "05", label: "Lakes & Waterways" },
   { n: "06", label: "Weekend Escapes" },
 ];
+const COUNT_WORD = ["No", "One", "Two", "Three", "Four", "Five", "Six"][LIVE_COUNT] || String(LIVE_COUNT);
 
 export default function SeriesSupport({ embedded = false }) {
   const [count, setCount] = useState(0);
@@ -97,7 +99,7 @@ export default function SeriesSupport({ embedded = false }) {
         </h3>
 
         <p className="backer-summary">
-          Three layers are live. Layers 04–06 are currently in research. A single tap tells us
+          {COUNT_WORD} layers are live. Layers {UPCOMING[0].n}–{UPCOMING[UPCOMING.length - 1].n} are currently in research. A single tap tells us
           the Mapping HYD series is worth continuing — zero login, no spam.
         </p>
 
